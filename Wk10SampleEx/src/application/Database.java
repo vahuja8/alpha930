@@ -35,6 +35,8 @@ public class Database {
 		}
 
 		return connection;
+	} 
+	/* this is demo...
+	 * 
+	 */
 	}
-
-}
