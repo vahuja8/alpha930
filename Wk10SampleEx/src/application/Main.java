@@ -1,5 +1,5 @@
 package application;
-	
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,20 +21,14 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-
 public class Main extends Application {
-	
-	
+
 	private static final Logger logger = Logger.getLogger(Main.class.getName());
 	private UserDao userDao = new UserDao();
-	
-	
+
 	@Override
 	public void start(Stage primaryStage) {
-		
-		
-		
-		
+
 		primaryStage.setTitle("JavaFX Welcome");
 
 		GridPane grid = new GridPane();
@@ -76,30 +70,26 @@ public class Main extends Application {
 		hBox.setAlignment(Pos.BOTTOM_RIGHT);
 		hBox.getChildren().add(saveButton);
 		grid.add(hBox, 1, 5);
-		
-		
 
-GridPane pane2 = new GridPane();
-pane2.setAlignment(Pos.BOTTOM_RIGHT);
-pane2.getChildren().add(saveButton);
+		GridPane pane2 = new GridPane();
+		pane2.setAlignment(Pos.BOTTOM_RIGHT);
+		pane2.getChildren().add(saveButton);
 
-PasswordField passwordField2 = new PasswordField();
-grid.add(passwordField2, 7, 7);
+		PasswordField passwordField2 = new PasswordField();
+		grid.add(passwordField2, 7, 7);
 		grid.add(pane2, 6, 6);
 
-		
-		
 		/*
 		 * ADD THE EVENT HANDLING --ONACTION METHOD.. TO DEAL WITH SAVE OPERATION
 		 */
-		
+
 		saveButton.setOnAction(actionEvent -> {
 
 			String username = usernameTextField.getText().trim();
 			String lastName = lastNameTextField.getText().trim();
 			String firstName = firstNameTextField.getText().trim();
 			String password = passwordField.getText();
-			
+
 			if (!StringPool.BLANK.equals(username) && !StringPool.BLANK.equals(lastName)
 					&& !StringPool.BLANK.equals(firstName) && !StringPool.BLANK.equals(password)) {
 				try {
@@ -121,21 +111,14 @@ grid.add(passwordField2, 7, 7);
 				this.alert("Error", "Please complete fields!", AlertType.ERROR);
 			}
 
-			
-			
-			
 		});
-		
-		
+
 		Scene scene = new Scene(grid, 300, 275);
 		primaryStage.setScene(scene);
 
 		primaryStage.show();
-		
-		
-		
+
 	}
-	
 
 	public void alert(String title, String message, AlertType alertType) {
 		Alert alert = new Alert(alertType);
@@ -155,7 +138,7 @@ grid.add(passwordField2, 7, 7);
 
 		return user;
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
